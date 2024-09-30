@@ -1,0 +1,33 @@
+<div class="container">
+  <br>
+  <p>Search</p>
+  
+  <!-- Search input to filter categories -->
+  <div class="form-group">
+    <input type="text" class="form-control" id="find" placeholder="Titre catégorie" [(ngModel)]="Title" #title="ngModel">
+  </div>
+
+  <div class="row">
+    <!-- Apply the custom 'contains' pipe here to filter categories based on 'Title' -->
+    <ng-container *ngFor="let c of categories | contains:Title">
+      <div class="col-md-4" style="margin-bottom: 20px;" appHighlight>
+        
+        <!-- Correct category image and description handling -->
+        <img (click)="getDescription(c.description)" [src]="c.image" [alt]="c.title" class="img-fluid h-50 w-75" appHighlight>
+        
+        <!-- Display category title in uppercase -->
+        <h3>{{ c.title | uppercase }}</h3>
+        
+        <!-- Button logic for available categories -->
+        <button class="btn btn-primary" *ngIf="c.available" (click)="afficheDescription(c.id)">Voir produits</button>
+        
+        <!-- Display message if category is not available -->
+        <button class="btn btn-primary" [hidden]="c.available">Voir produits</button>
+        <p *ngIf="!c.available">Catégorie non dispo</p>
+      </div>
+    </ng-container>
+  </div>
+  
+  <!-- Display search term for debugging or reference -->
+  <p>{{ Title }}</p>
+</div>

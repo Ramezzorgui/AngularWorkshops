@@ -1,0 +1,36 @@
+<p>Salut tout le monde</p>
+
+<p>{{name}}</p>
+
+<p>{{user.id}}</p>
+<p>{{user.NameUser}}</p>
+<p>{{user.Age}}</p>
+
+<button [disabled]="quantity == 0">Button</button>
+<br>
+<br>
+<img [src]="url" [alt]="Alt">
+<br>
+<br>
+<input type="text" [(ngModel)]="NameTwo">
+
+<p [style.color]="color" >{{NameTwo}}</p>
+
+<button (click)="Change()">Button</button>
+
+<p>{{quantity}}</p>
+
+<button (click)="Buy()"> Buy</button>
+
+
+<input (input)="onChangeInput($event)">
+
+<p [style.color]="color" >Test Color</p>
+
+
+<input name="c" [(ngModel)]="ColorTwo">
+
+<p>{{ColorTwo}}</p>
+
+
+<button type="button" class="btn btn-primary">Test</button>
