@@ -19,10 +19,10 @@
         <h3>{{ c.title | uppercase }}</h3>
         
         <!-- Button logic for available categories -->
-        <button class="btn btn-primary" *ngIf="c.available" (click)="afficheDescription(c.id)">Voir produits</button>
+        <button class="btn btn-primary" *ngIf="c.available" [routerLink]="['/product/',c.id]" >Voir produits</button>
         
         <!-- Display message if category is not available -->
-        <button class="btn btn-primary" [hidden]="c.available">Voir produits</button>
+
         <p *ngIf="!c.available">Catégorie non dispo</p>
       </div>
     </ng-container>

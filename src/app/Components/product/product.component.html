@@ -1,1 +1,33 @@
-<p>product works!</p>
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+        <label> Search : </label>
+        <input type="text" class="form-control" name="filter" [(ngModel)]="search">
+    </div>
+      <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let product of list | filterProduct:search">
+        <img [src]="product.image" [alt]="product.name" class="img-fluid h-50 w-75">
+        <h3 [ngClass]="product.nbLikes >=10 ? 'clignote' : ''">{{product.name}}</h3>
+       
+        <h3>{{product.price}}</h3>
+        <h3>{{product.nbLikes}}</h3>
+        <h3>{{product.quantity}}</h3>
+        <div class="row">
+            <div class="alert alert-danger" *ngif="listProducts.length ==0">
+                <h2>Aucun Produit</h2>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn vtn-outline-primary"(click)="increment(product)">Like</button>
+                
+            </div>
+            <div class="col-6">
+                <button *ngIf="product.quantity ==0 ;else elseBlock" type="button" class="btn btn-outline-secondary"(click)="buy(product)" disabled> Buy </button>
+                <ng-template #elseBlock>
+                    <button type="button" class="btn btn-outline-secondary"
+                    (click)="buy(product)">Buy</button>
+                </ng-template>
+            </div>
+        </div>
+      </div>
+    
+      </div>
+     </div>

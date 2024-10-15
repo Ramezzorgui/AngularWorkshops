@@ -11,6 +11,9 @@ import { HomeComponent } from './Components/home/home.component';
 import { ListCategoriesComponent } from './Components/list-categories/list-categories.component';
 import { ContainsPipe } from './pipes/contains.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FilterProductPipe } from './pipe/filter-product.pipe';
+
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { HighlightDirective } from './directives/highlight.directive';
     HomeComponent,
     ListCategoriesComponent,
     ContainsPipe,
-    HighlightDirective
+    HighlightDirective,
+    NotFoundComponent,
+    
   ],
   imports: [
     BrowserModule,
